@@ -21,7 +21,10 @@ async function createCity(req, res, next) {
 
 async function getCities(req, res, next) {
   try {
-    const cities = await cityService.getCities();
+ 
+    const {filter} = req.query
+
+    const cities = await cityService.getCities(filter);
 
     res.status(StatusCodes.OK).json({
       success: true,
