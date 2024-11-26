@@ -1,15 +1,17 @@
-const express = require("express")
+const express = require("express");
 
-const {FlightController} = require("../../controllers/index")   
+const { FlightController } = require("../../controllers/index");
 
-const flightRouter = express.Router()
+const { FlightMiddleware } = require("../../middlewares");
 
+const flightRouter = express.Router();
 
-flightRouter.post("/", FlightController.createFlight)
+flightRouter.post("/", FlightController.createFlight);
 
-flightRouter.get("/", FlightController.getAllFlights)
+flightRouter.get(
+  "/",
+  FlightMiddleware.validateCreateFlight,
+  FlightController.getAllFlights
+);
 
-
-module.exports = flightRouter
-
-
+module.exports = flightRouter;
