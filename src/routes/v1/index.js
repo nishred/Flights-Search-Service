@@ -1,10 +1,12 @@
-const express = require("express")  
+const express = require("express");
 
-const router = express.Router() 
+const router = express.Router();
 
-const cityRouter = require('./city.routes') 
+const cityRouter = require("./city.routes");
+const flightRouter = require("./flight.routes");
 
-router.use('/cities', cityRouter)
+router.use("/cities", cityRouter);
 
+router.use("/flights", flightRouter);
 
-module.exports = router 
+module.exports = router;

@@ -25,14 +25,5 @@ app.get("/test", (req, res) => {
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
 
- 
-   const city = await City.create({
- 
-       name : "Hayward"
-      
-   })
-
-   console.log(city)
-
 
 });
